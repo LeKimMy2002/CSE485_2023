@@ -1,0 +1,38 @@
+html, body{
+    background-image: url(../css/img/hoa-bay.gif);
+}
+h1{
+    font-family: 'Amatic SC', cursive;
+    font-size: 65px;
+}
+.table_body{
+    padding: 3%;
+    background-color: #fbcfe8;
+    border: dashed #f9a8d4;
+    border-radius: 15px;
+}
+table,th,td{
+    border: 4px solid #f8fafc;
+    text-align: center;
+}
+tr:hover{
+    background-color: #f9a8d4;
+    cursor: pointer;
+}
+table tr:nth-child(odd){
+    background-color:#fdf2f8;
+}
+table tr:nth-child(even){
+    background-color:white;
+}
+table tr:nth-child(1){
+    background-color:#fbcfe8;
+}
+
+.insert_btn{
+    background-color: #f9a8d4;
+    border-radius: 8px;
+    border: 2px solid#f9a8d4;
+    color:black;
+    text-align: center;
+}

@@ -1,5 +1,5 @@
 <?php
-    declare(strict_types = 1);
+    // declare(strict_types = 1);
     class Student{
         private string $id;
         private string $name;
@@ -53,17 +53,37 @@
         {
             $this->listStudent = array();
         }
+        //hàm thêm sinh viên 
         public function addStudent(Student $student){
-            array_push($listStudent,$student);
+            array_push($this->listStudent, $student);
         }
-        public function readFile(){
-            $fileSV = fopen('../ListStudent.csv', 'r');
-            while($data = fgetcsv($fileSV, 1000, ","))
-            {
-                list($id, $name, $class, $address) = $data;
-                echo $id .' '. $name . ' '. $class .' '.$address.'<br>';
+        //hàm xóa các sinh viên có id
+        public function deleteStudent($id){ 
+            //duyệt danh sách sinh viên trong mảng listStudent
+            foreach($this->listStudent as $key=>$student){
+                //nếu tìm thấy id của sinh viên trùng với id cần tìm 
+                if($student->id==$id){
+                    //thực hiện xóa sinh viên đó tạo vị trí key khỏi listStudent
+                    unset($this->listStudent[$key]);
+                }
             }
-            fclose($fileSV);
         }
+        //hàm tìm sinh viên
+        public function findStudent($id){
+            //duyệt danh sách sinh viên trong mảng listStudent
+            foreach($this->listStudent as $student){
+                //nếu tìm thấy sinh viên có id trùng với id cần tìm thì trả về đối tượng đó
+                if($student->getId() == $id){
+                    return $student;
+                }
+            }
+            //nếu không thấy thì trả về null
+            return null;
+        }
+        //lấy tất cả các đối tượng sinh viên trong listStudent và trả về
+        public function getAllStudents(){
+            return $this->listStudent;
+        }
+
     }
 ?>
